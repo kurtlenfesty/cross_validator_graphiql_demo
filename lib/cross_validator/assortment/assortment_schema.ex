@@ -29,7 +29,7 @@ defmodule CrossValidator.AssortmentSchema do
 
   def changeset(assortment, params \\ %{}) do
     assortment
-    |> Ecto.Changeset.cast(params, __schema__(:fields))
-    |> Ecto.Changeset.validate_required([:magical_string_one, :magical_string_two])
+    |> cast(params, __schema__(:fields))
+    |> validate_required([:magical_string_one, :magical_string_two])
   end
 end

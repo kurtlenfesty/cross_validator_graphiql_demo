@@ -18,19 +18,12 @@ config :cross_validator, CrossValidator.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :cross_validator, CrossValidatorWeb.Endpoint,
+  # TODO Change this to port 4000 before checking in.
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
-  ]
+  watchers: []
 
 # ## SSL Support
 #
