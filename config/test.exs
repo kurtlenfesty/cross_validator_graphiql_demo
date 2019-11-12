@@ -6,6 +6,8 @@ config :cross_validator, CrossValidator.Repo,
   password: "postgres",
   database: "cross_validator_test",
   hostname: "localhost",
+  # TODO change to 5432 before checking in
+  port: 5432,
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

@@ -7,6 +7,15 @@
 # General application configuration
 use Mix.Config
 
+config :cross_validator, CrossValidator.Repo,
+  # NOTE: This is the production database, which will be overridden by the dev and test configuration.
+  database: "cross_validator_repo",
+  username: "postgres",
+  password: "postgres",
+  hostname: "localhost",
+  # TODO change to 5432 before checking in
+  port: 5432
+
 config :cross_validator,
   ecto_repos: [CrossValidator.Repo]
 

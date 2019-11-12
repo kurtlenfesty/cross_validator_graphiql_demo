@@ -7,6 +7,8 @@ config :cross_validator, CrossValidator.Repo,
   database: "cross_validator_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
+  # TODO change to 5432 before checking in
+  port: 5432,
   pool_size: 10
 
 # For development, we disable any cache and enable
