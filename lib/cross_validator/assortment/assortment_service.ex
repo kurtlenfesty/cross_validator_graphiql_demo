@@ -97,4 +97,20 @@ defmodule CrossValidator.AssortmentService do
     Logger.warn("#{__MODULE__}.update: Cannot update with provided arguments", id: id, args: args)
     {:error}
   end
+
+  @doc """
+    Hard deletes an existing assortment, given it's id
+
+  ## Examples
+
+      iex> delete(123)
+      {:ok, %{id: 123}}
+
+  """
+  @spec delete(number) :: {:ok, %{id: number}}
+  def delete(id) do
+    Logger.debug("#{__MODULE__}.delete", id: id)
+    AssortmentWriter.delete(id)
+    {:ok, %{id: id}}
+  end
 end

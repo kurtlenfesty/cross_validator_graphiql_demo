@@ -16,7 +16,6 @@ defmodule CrossValidator.AssortmentSchema do
     field(:magical_string_two, :string)
     field(:mythical_boolean_one, :boolean, default: true)
     field(:mythical_boolean_two, :boolean, default: false)
-    field(:greeting_name, :string, default: false)
     field(:list_of_strings_one, {:array, :string}, default: [])
     field(:list_of_strings_two, {:array, :string}, default: [])
     field(:fairy_date_one, :date)

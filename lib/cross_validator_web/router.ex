@@ -5,7 +5,11 @@ defmodule CrossValidatorWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", CrossValidatorWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: CrossValidatorWeb.Schema
+
+    forward "/", Absinthe.Plug, schema: CrossValidatorWeb.Schema
   end
 end
