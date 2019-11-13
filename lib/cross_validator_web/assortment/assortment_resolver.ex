@@ -12,14 +12,14 @@ defmodule CrossValidatorWeb.AssortmentResolver do
     AssortmentService.fetch_one(filter)
   end
 
-  def create(_, args = %{}, _) do
-    Logger.debug("#{__MODULE__}.create", args: args)
-    AssortmentService.create(args)
+  def create(_, %{input: input}, _) do
+    Logger.debug("#{__MODULE__}.create", input: input)
+    AssortmentService.create(input)
   end
 
-  def update(_, args = %{id: id}, _) do
-    Logger.debug("#{__MODULE__}.update", args: args)
-    AssortmentService.update(id, args)
+  def update(_, %{id: id, input: input}, _) do
+    Logger.debug("#{__MODULE__}.update", input: input)
+    AssortmentService.update(id, input)
   end
 
   def delete(_, %{id: id}, _) do

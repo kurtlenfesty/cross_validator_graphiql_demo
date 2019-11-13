@@ -1,6 +1,6 @@
 defmodule CrossValidator.AssortmentSchema do
   @moduledoc """
-    Assortment fields.
+    Assortment schema.
   """
 
   use Ecto.Schema
@@ -9,7 +9,7 @@ defmodule CrossValidator.AssortmentSchema do
   require Logger
 
   schema "assortments_v1" do
-    field(:uid, :binary_id, primary_key: true)
+    field(:uid, :binary_id)
     field(:special_number_one, :integer, default: -1)
     field(:special_number_two, :integer, default: 501)
     field(:magical_string_one, :string)
@@ -26,9 +26,15 @@ defmodule CrossValidator.AssortmentSchema do
     timestamps(type: :utc_datetime_usec)
   end
 
-  def changeset(assortment, params \\ %{}) do
+  def changeset(assortment = %CrossValidator.AssortmentSchema{}, attrs = %{}),
+    do: cast_changeset(assortment, attrs)
+
+  def changeset(_assortment, attrs = %{}),
+    do: cast_changeset(%CrossValidator.AssortmentSchema{}, attrs)
+
+  defp cast_changeset(assortment = %CrossValidator.AssortmentSchema{}, attrs = %{}) do
     assortment
-    |> cast(params, __schema__(:fields))
+    |> cast(attrs, __schema__(:fields))
     |> validate_required([:magical_string_one, :magical_string_two])
   end
 end
